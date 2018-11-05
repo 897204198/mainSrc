@@ -1,0 +1,27 @@
+page-login {
+  .scroll-content {
+    overflow: hidden;
+  }
+
+  .login-logo {
+    margin-top: -20px
+  }
+
+  .login-input {
+    padding-right: 16px !important;
+  }
+
+  .login-icon {
+    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
+
+    > ion-icon {
+      font-size: 26px;
+    }
+  }
+
+  #e2e-login-button {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14) !important;
+  }
+}

@@ -1,0 +1,71 @@
+page-home-plugins-manager {
+  .menus {
+    background-color: #ffffff;
+
+    &.row-division {
+      margin-top: 8px;
+    }
+
+    .menus-title {
+      padding: 8px 18px;
+      font-size: 14px;
+
+      &.menus-first {
+        border-top: 1px solid #e0e0e0;
+      }
+    }
+
+    .menus-content {
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .setting-menu {
+        text-align: center;
+        padding: 8px 0px;
+        position: relative;
+
+        &.pressActive {
+          img {
+            width: 60px;
+            height: 60px;
+            margin-top: -5px;
+          }
+        }
+
+        ion-icon {
+          font-size: 17px;
+          color: #777777;
+          display: inline-block;
+        }
+
+        .menus-op {
+          position: absolute;
+          top: 0;
+          right: 5px;
+
+          &.positive {
+            color: color($colors, primary);
+          }
+        }
+
+        img {
+          width: 55px;
+          height: 55px;
+          padding: 6px;
+        }
+
+        .menu-text {
+          text-align: center;
+          font-size: 13px;
+          color: #777777;
+          padding-top: 2px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'ORGANIZATION_ADDRESS' | translate}}</ion-title>
+  </ion-navbar>
+  <ion-navbar>
+    <form class="organization-header-search">
+      <ion-searchbar name="search" placeholder="{{'SEARCH' | translate}}" [formControl]="titleFilter">
+      </ion-searchbar>
+    </form>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- 搜索列表 -->
+  <icmp-placeholder *ngIf="isSearch && !searchUserList.length" placeholder="{{keyword}}"></icmp-placeholder>
+  <ion-list *ngIf="isSearch">
+    <div *ngFor="let user of searchUserList; let i = index">
+      <button *ngIf="i<showNumber" ion-item (click)="lookUserProfile(user)">
+        <ion-avatar item-left>
+          <img *ngIf="user.avatar" src="{{user.avatar}}" (error)="resetImg(user, false)">
+          <div *ngIf="!user.avatar" class="word-head-image">
+            <div class="word-head-image-content">{{user.name.substring(0, 1)}}</div>
+          </div>
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+        <button class="clear-btn" clear *ngIf="user.status != null && user.status.code != null && user.status.code != '0'" ion-button
+          item-end (click)="addFriend($event, user)">添加</button>
+        <button class="clear-btn" clear disabled *ngIf="user.status != null && user.status.code != null && user.status.code == '0'"
+          ion-button item-end color="dark">已添加</button>
+      </button>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="isSearch" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-content *ngIf="!isSearch" class="content-gray-new organization-content">
+    <!-- 顶部滑动列表 -->
+    <ion-scroll scrollX>
+      <div *ngFor="let item of organizationList; let i = index" class="scroll-item">
+        <button ion-button clear class="horizontal-button" (click)="changeOrganization(item, i)">{{item?.organizationName}}</button>
+        <span *ngIf="i!=organizationList.length-1" class="separator-span">/</span>
+      </div>
+    </ion-scroll>
+
+    <div class="subject-select">
+      <!-- 左侧列表 -->
+      <ion-scroll scrollY class="subject-scroll subject-scroll-left">
+        <button *ngFor="let item of subOrganizationList" ion-item (click)="changeSubOrganization(item)" class="gray-button" detail-none
+          text-wrap>
+          <h2>{{item?.organizationName}}</h2>
+        </button>
+        <div style="height: 52px;"></div>
+      </ion-scroll>
+      <!-- 右侧列表 -->
+      <ion-scroll scrollY class="subject-scroll subject-scroll-right">
+        <button *ngFor="let user of userList" ion-item (click)="lookUserProfile(user)" detail-none>
+          <ion-avatar item-left>
+            <img *ngIf="user.avatar" src="{{user.avatar}}" (error)="resetImg(user, true)">
+            <div *ngIf="!user.avatar" class="word-head-image">
+              <div class="word-head-image-content">{{user.name.substring(0, 1)}}</div>
+            </div>
+          </ion-avatar>
+          <h2>{{user.name}}</h2>
+          <button class="clear-btn" clear *ngIf="user.status != null && user.status.code != null && user.status.code != '0'" ion-button
+            item-end (click)="addFriend($event, user)">{{'ADD' | translate}}</button>
+          <button class="clear-btn" clear disabled *ngIf="user.status != null && user.status.code != null && user.status.code == '0'"
+            ion-button item-end color="dark">{{'ADDED' | translate}}</button>
+        </button>
+        <div style="height: 52px;"></div>
+      </ion-scroll>
+    </div>
+  </ion-content>
+
+
+</ion-content>

@@ -1,0 +1,64 @@
+<icmp-spinner></icmp-spinner>
+<ion-header>
+  <ion-navbar>
+    <ion-title id="e2e-query-detail-title">{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-gray">
+  <ion-list class="icmp-list-bottom-none icmp-list-top-margin">
+    <div *ngFor="let item of queryDetail">
+      <ion-item *ngIf="item.type != 'filelist' && item.type != 'tablelist' && item.layout == 'layout_1'">
+        <ion-label fixed>{{item.label}}</ion-label>
+        <p item-right class="form_text_value">{{item.default}}</p>
+      </ion-item>
+      <ion-item *ngIf="item.type != 'filelist' && item.type != 'tablelist' && item.layout == 'layout_2'">
+        <h2>{{item.label}}</h2>
+        <p class="form_textarea_value"><span [innerHtml]="item.value"></span></p>
+      </ion-item>
+      <ion-item *ngIf="item.type == 'tablelist'" class="form-table-list">
+        <h2>{{item.label}}</h2>
+        <div class="form-table-content">
+          <table>
+            <tr *ngFor="let head of item.headers; let i = index">
+              <td class="form-table-head">{{head.text}}</td>
+              <td *ngFor="let value of item.values">
+                <span *ngIf="value[i].type == null">{{value[i]}}</span>
+                <span *ngIf="value[i].type == 'filelist'">
+                  <div *ngFor="let file of value[i].values" (click)="downloadFile(file)" class="tablelist-file">
+                    <icmp-file-type-image [fileType]="getFileType(file.name)"></icmp-file-type-image>
+                    <span>{{file.name}}</span>
+                  </div>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+  <div *ngFor="let fileForm of fileList">
+    <div class="icmp-list-header">
+      {{fileForm.label}}
+    </div>
+    <ion-list class="icmp-list-bottom-none">
+      <button ion-item *ngFor="let file of fileForm.values" (click)="downloadFile(file)">
+        <ion-avatar item-start>
+          <icmp-file-type-image [fileType]="getFileType(file.name)"></icmp-file-type-image>
+        </ion-avatar>
+        {{file.name}}
+      </button>
+    </ion-list>
+  </div>
+  <div *ngIf="opinionList != null && opinionList.length > 0">
+    <div class="icmp-list-header">
+      {{'APPROVAL_OPINION' | translate}}
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let opinion of opinionList">     
+        <h2 class="opinion_comment">{{opinion.stepName}}：<span [innerHtml]="opinion.opinion"></span></h2>
+        <p class="opinion_foot">{{'APPROVER' | translate}}：{{opinion.name}}</p>
+        <p class="opinion_foot">{{'APPROVAL_TIME' | translate}}：{{opinion.approvalTime}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,88 @@
+page-user-profile {
+  .user-head-image-div {
+    margin-bottom: 10px;
+    background-color: #fff;
+    height: 100px;
+    display: flex;
+
+    .user-head-image-div-img {
+      flex: 1;
+      min-width: 100px;
+      max-width: 100px;
+
+      img {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 20px;
+      }
+      
+      div {
+        text-align: center;
+        margin: 17px;
+        height: 66px;
+        width: 66px;
+        font-size: 30px;
+        line-height: 66px;
+        color: #fff;
+        border-radius: 50%;
+        background-color: color($colors, primary);
+      }
+    }
+
+    .user-head-image-div-content {
+      flex: 1;
+      font-size: 1.3em;
+      display: flex;
+      flex-direction: column;
+      margin: 24px 0;
+
+      p {
+        flex: 1;
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .orgName {
+        font-size: 0.8em;
+        color: #999;
+      }
+    }
+  }
+
+  .item-ios [item-right] {
+    margin: 0 8px 0 0;
+  }
+
+  .footer-md::before{
+    background-image: none;
+  }
+  .footer .toolbar-background-md {
+    background-color: transparent !important; 
+  }
+
+  .footer-ios .toolbar-ios:first-child .toolbar-background-ios{
+    border-width: 0;
+    background-color: transparent !important;
+  }
+
+  .button-ios {
+    height: 2.4em;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+
+  .button-md {
+    height: 2.4em;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+
+  .label-ios {
+    font-size: 1.4rem;
+  }
+}

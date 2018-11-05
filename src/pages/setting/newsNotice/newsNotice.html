@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'NEW_NOTICE' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray-new page-news-notice">
+  <div class="icmp-list-header">
+    {{'NEW_NOTICE_PROMPT' | translate}}
+  </div>
+  <ion-list class="icmp-list-bottom-none">
+    <ion-item>
+      <ion-label>{{'VOICE' | translate}}</ion-label>
+      <ion-toggle color="primary" [(ngModel)]="openVoice" (ionChange)="changeVoice()"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'VIBRATE' | translate}}</ion-label>
+      <ion-toggle color="primary" [(ngModel)]="openVibrate" (ionChange)="changeVibrate()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="isAndroid" class="icmp-list-header">
+    {{'OPEN_TM_AUTO_NOTICE' | translate}}
+  </div>
+  <ion-list *ngIf="isAndroid" class="icmp-list-margin">
+    <ion-item detail-push (click)="openAutoRun()">
+      <ion-label>{{'OPEN_AUTO_RUN' | translate}}</ion-label>
+      <div item-content class="icmp-item-color">{{'SET_UP' | translate}}</div>  
+    </ion-item>
+    <ion-item detail-push (click)="allowBackstageRun()">
+      <ion-label>{{'ALLOW_BACKSTAGE_RUN' | translate}}</ion-label>
+      <div item-content class="icmp-item-color">{{'SET_UP' | translate}}</div>  
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

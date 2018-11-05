@@ -1,0 +1,102 @@
+.feedbackList-content{
+  .feedbackList-content-div {
+    &:last-child {
+      padding-bottom: 15px;
+    }
+
+    .feedbackList-content-space {
+      padding-top: 15px;
+    }
+
+    .send {
+      width: 55%;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 13px;
+      margin-left: 40%;
+      color: #fff;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .content-opinion-time {
+      font-size: 12px;
+      margin-left: 41%;
+      color: #aaa;
+    }
+
+    .replay {
+      width: 55%;
+      border: 1px solid #bbbbbb;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 13px;
+      margin-left: 5%;
+      color: #444;
+      background-color: #fff;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .content-feedback-time {
+      font-size: 12px;
+      margin-left: 6%;
+      color: #aaa;
+    }
+  }
+
+  .positive-bg {
+    background-color: color($colors, primary) !important;
+  }
+
+  .content-spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 16px;
+    text-align: center;
+  }
+}
+
+.feedbackList-footer {
+  .toolbar-md {
+    padding-bottom: 8px;
+  }
+
+  .toolbar {
+    align-items: flex-end;
+  }
+
+  .feedback-textarea {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom-width: 1px;
+    width: 100%;
+    padding: 10px 4px;
+    line-height: 18px;
+    resize: none;
+  }
+
+  .left-bar-buttons {
+    margin-bottom: 5px;
+  }
+
+  .right-bar-buttons {
+    padding-bottom: 4px;
+
+    .bar-button {
+      color: #ffffff;
+      background-color: color($colors, primary);
+      font-size: 14px;
+      padding: 4px 12px;
+    }
+  }
+
+  .positive-border {
+    border-color: color($colors, primary);
+  }
+  
+}

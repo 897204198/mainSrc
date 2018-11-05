@@ -1,0 +1,160 @@
+page-address {
+
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img {
+    border-radius: inherit;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    border-radius: inherit;
+  }
+
+  .header-ios .toolbar-background-ios {
+    border-color: #fff;
+  }
+
+  .header-md::after {
+    background-image: none;
+  }
+
+  .searchbar-ios {
+    background-color: #fff;
+    padding:0 16px 10px 16px;
+    min-height: 54px;
+
+    .searchbar-input {
+      border-radius: 10px;
+      background-color: #f0f4f7;
+    }
+
+    .searchbar-search-icon {
+      top: 11px;
+    }
+  }
+
+  .searchbar-md {
+    background-color: #fff;
+    padding:0 16px 10px 16px;
+    min-height: 54px;
+
+    .searchbar-input {
+      border-radius: 10px;
+      background-color: #f0f4f7;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0) !important;
+      height: 42px;
+      min-height: 42px;
+    }
+
+    .searchbar-search-icon {
+      top: 11px;
+    }
+  }
+
+  .searchbar-md .searchbar-clear-icon {
+    border-radius: 50%;
+    height: 22px;
+    top: 10px;
+  }
+
+  .item-ios {
+    font-size: 1.4rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  .icmp-list-bottom-margin {
+    
+    .contact-no-bottom:last-child {
+
+      .item-inner {
+        border: 0 !important;
+      }
+    } 
+
+    .control-img {
+      min-width: 36px;
+      min-height: 36px;
+      border-radius: none;
+
+      img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .list-avatar {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .orgName {
+      color: #999;
+    }
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0px !important;
+  }
+
+  .side {
+    text-align: center;
+    list-style: none;
+    position: fixed;
+    z-index: 999;
+    right: 2%;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #777;
+    overflow-y: scroll;
+    max-height: 70%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .side span {
+    text-decoration: none;
+    font: size 12px;
+    text-align: center;
+  }
+
+  .dynamic-side {
+    padding: 0 25px;
+    font-size: 1.7rem;
+    li {
+      margin: 15px 0px;
+    }
+  }
+
+  .margin-bottom {
+    margin-bottom: 16px !important;
+    margin: -1px 0 16px;
+  }
+  
+  .letterStyle {
+    min-height: 3.4rem;
+  }
+  
+  .list-md {
+    border-top: 1px solid #dedede !important;
+    border-bottom: 1px solid #dedede !important;
+  }
+
+  .list-md-no-border {
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  .hint {
+    padding: 1px 6px;
+    background-color: red;
+    color: white;
+    top: 70px;
+    right: 8%;
+    position: -6%;
+    position: absolute;
+    border-radius: 50%;
+    order: 5;
+  }
+}
+

@@ -1,0 +1,38 @@
+<icmp-spinner [isShow]="spinnerShow" (onTerminated)="refresherInterrupt()"></icmp-spinner>
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'FEEDBACK' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content #content class="content-gray feedbackList-content">
+  <div *ngIf="loadShow" class="content-spinner"><ion-spinner></ion-spinner></div>
+  <div *ngFor="let feedback of feedbacks" class="feedbackList-content-div">
+    <div class="feedbackList-content-space" *ngIf="feedback.opinion != null && feedback.opinion !== ''">
+      <div *ngIf="feedback.opinion" class="send positive-bg positive-border">{{feedback.opinion}}</div>
+      <div class="content-opinion-time">{{feedback.opinionTime}}</div>
+    </div>
+    <div class="feedbackList-content-space" *ngIf="feedback.pictureId != null && feedback.pictureId !== ''">
+      <img *ngIf="feedback.pictureId" tappable (tap)="tapImage(feedback.pictureId)" class="send positive-bg positive-border" [src]="fileUrl+feedback.pictureId+token">
+      <div class="content-opinion-time">{{feedback.opinionTime}}</div>
+    </div>
+    <div class="feedbackList-content-space" *ngIf="feedback.feedback != null && feedback.feedback !== ''">
+      <div class="replay">{{feedback.feedback}}</div>
+      <div class="content-feedback-time">{{feedback.feedbackTime}}</div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer [icmp-keyboard-attach]="content" class="feedbackList-footer">
+  <ion-toolbar>
+    <ion-buttons left class="left-bar-buttons">
+      <button ion-button icon-only (click)="chooseImage()">
+        <ion-icon name="ios-image"></ion-icon>
+      </button>
+    </ion-buttons>
+    <textarea rows="1" class="feedback-textarea positive-border" placeholder="{{'HAS_SOME_FEEDBACK' | translate}}" [(ngModel)]="inputOpinion"></textarea>
+    <ion-buttons right class="right-bar-buttons">
+      <button ion-button color="primary" [disabled]="inputOpinion.length == 0" (click)="submitOpinion()">
+        {{'SUBMIT' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

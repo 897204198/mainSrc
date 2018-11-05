@@ -1,0 +1,134 @@
+.application-content {
+  .form-title {
+    text-align: center;
+    font-size: 18px;
+    padding: 12px 22px;
+  }
+
+  .application-template-title {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .application-form .item {
+    &.item-textarea .input-wrapper {
+      flex-direction: column;
+
+      .text-input {
+        margin: 0;
+        width: 100%;
+      }
+
+      .label {
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: normal;
+        max-width: none;
+      }
+    }
+
+    .form-text .text-input {
+      text-align: right;
+    }
+
+    .form-text .text-input[disabled] {
+      opacity: 1 !important;
+    }
+  }
+
+  .label {
+    color: #000000;
+  }
+
+  ion-label[fixed] {
+    width: 130px;
+    min-width: 130px;
+    max-width: 200px;
+  }
+
+  .small-label {
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  ion-textarea textarea {
+    height: 100%;
+  }
+
+  .list-md .item-input:last-child {
+    border-bottom: 0;
+  }
+
+  .item-radioAndCheck {
+    margin: 0;
+
+    .list-header {
+      background-color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+      border-top: 0;
+      border-bottom: 0;
+
+      .label {
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: normal;
+      }
+    }
+
+    .item-block:last-child {
+      border-bottom: 0;
+
+      &.item-md .item-inner {
+        border-bottom: 1px solid #dedede;
+      }
+
+      &.item-ios .item-inner {
+        border-bottom: 0.55px solid #c8c7cc;
+      }
+    }
+  }
+
+  .nested-list {
+    .item-block:last-child {
+      border-bottom: 0;
+    }
+
+    ion-select, ion-datetime {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .file-header {
+    display: flex;
+    align-items: center;
+
+    > span {
+      flex-grow: 1;
+      font-size: 18px;
+    }
+  }
+
+  .add-circle-add {
+    font-size: 30px;
+  }
+
+  .remove-circle-delete {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .remove-circle-delete-border {
+    border-top: 1px solid #dedede;
+  }
+
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img {
+    border-radius: 0;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    border-radius: 0;
+  }
+}

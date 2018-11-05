@@ -1,0 +1,44 @@
+page-query-detail {
+  .item-ios [item-right] {
+    margin: 8px 8px 8px 0 !important;
+  }
+
+  .form_text_value {
+    width: calc(100% - 120px);
+    text-align: right;
+  }
+
+  .form_textarea_value {
+    white-space: normal;
+    text-overflow: clip;
+    padding-top: 3px;
+  }
+
+  .opinion_foot {
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  .opinion_comment {
+    white-space: normal;
+  }
+
+  .tablelist-file {
+    color: color($colors, primary);
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+  }
+  
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img {
+    border-radius: 0;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="menu-folder" (click)="dismiss()">
+  <div class="menus">
+    <div class="menus-title">{{folder.name}}</div>
+    <div class="menus-content">
+      <ion-slides class="menus-carousel" [pager]="showPager" (click)="slidesClk($event)" #menuFolder>
+        <ion-slide class="menus-carousel-li" *ngFor="let myMenu of folderMenus">
+          <div class="folder-menu" *ngFor="let item of myMenu" tappable (tap)="menusClk(item, $event)"
+               [ngClass]="{'folder-menu-nopager': !showPager}">
+            <img [src]="item.icon">
+            <div class="menu-title"><span>{{item.name}}</span></div>
+            <span class="menu-superscript-area"><span class="menu-superscript" *ngIf="item.total != null && item.total != 0">{{folder.total}}</span></span>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</div>

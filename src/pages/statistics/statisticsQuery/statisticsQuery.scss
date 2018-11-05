@@ -1,0 +1,20 @@
+.statisticsQuery-content {
+  .statisticsQuery-form .item {
+    &.item-textarea .input-wrapper {
+      flex-direction: column;
+
+      .text-input {
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    .form-text .text-input {
+      text-align: right;
+    }
+
+    .form-text .text-input[disabled] {
+      opacity: 1 !important;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<icmp-spinner></icmp-spinner>
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'PERSONAL_INFO' | translate}}</ion-title>
+    <ion-buttons end>
+      <button *ngIf="isFriend" ion-button clear color="primary" (click)="deleteFriend()">
+        <span style="font-size: 1.4rem;">{{'DELETE_FRIEND' | translate}}</span>
+      </button>
+      <button *ngIf="!isFriend" ion-button clear small color="primary" (click)="addFriend()">
+        <span style="font-size: 1.4rem;">{{'ADD_FRIEND' | translate}}</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-gray-new">
+  <div class="user-head-image-div">
+    <div class="user-head-image-div-img">
+      <img *ngIf="toUserInfo['avatar']" src="{{toUserInfo['avatar']}}" (error)="resetImg()">
+      <div *ngIf="!toUserInfo['avatar']">{{toUserInfo['name'] ? toUserInfo['name'].substring(0, 1): ''}}</div>
+    </div>
+    <div class="user-head-image-div-content">
+      <p>{{toUserInfo?.name}}</p>
+      <p *ngIf="toUserInfo != null && toUserInfo.orgName != null" class='orgName'>{{'DEPARTMENT' | translate}} : {{toUserInfo?.orgName}}</p>
+    </div>
+  </div>
+  <ion-list>
+    <ion-item *ngIf="toUserInfo != null && toUserInfo.sexName != null">
+      {{'SEX' | translate}}
+      <p item-right>{{toUserInfo?.sexName}}</p>
+    </ion-item>
+    <ion-item *ngIf="toUserInfo != null && toUserInfo.phone != null">
+      {{'PHONE' | translate}}
+      <p item-right>{{toUserInfo?.phone}}</p>
+    </ion-item>
+    <ion-item *ngIf="toUserInfo != null && toUserInfo.email != null">
+      {{'EMAIL' | translate}}
+      <p item-right>{{toUserInfo?.email}}</p>
+    </ion-item>
+    <ion-item *ngIf="toUserInfo != null && toUserInfo.email != null">
+      {{'DEPARTMENT' | translate}}
+      <p item-right>{{toUserInfo?.orgName}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button block round color="primary" (click)="chatToUser()">
+      {{'SEND_MESSAGE' | translate}}
+    </button>
+  </ion-toolbar>
+</ion-footer>

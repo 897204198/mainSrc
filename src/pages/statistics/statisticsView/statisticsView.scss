@@ -1,0 +1,42 @@
+.statisticsView-content {
+  .statisticsView-illustrate {
+    .item {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .statisticsView-title {
+      text-align: center;
+  
+      .label {
+        white-space: normal;
+      }
+    }
+
+    .item-ios [item-right] {
+      margin: 8px 8px 8px 0 !important;
+    }
+
+    ion-label[fixed] {
+      width: 200px;
+      min-width: 200px;
+      max-width: 200px;
+    }
+
+    .text-value {
+      width: calc(100% - 120px);
+      text-align: right;
+      font-size: 16px;
+    }
+
+    .textarea-value {
+      white-space: normal;
+      text-overflow: clip;
+      padding-top: 3px;
+      font-size: 16px;
+    }
+  }
+
+  .statistics-chart {
+    padding: 8px;
+  }
+}

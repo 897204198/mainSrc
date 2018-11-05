@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'CREATE_GROUP' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-gray-new">
+  <ion-list class="icmp-list-top-margin">
+    <ion-item no-lines>
+      <ion-label fixed>{{'GROUP_NAME' | translate}}</ion-label>
+      <ion-input [(ngModel)]="groupName"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button [disabled]='isSumbit' ion-button round block color="primary" (tap)="createGroup()">
+      {{'CONFIRM' | translate}}
+    </button>
+  </div>
+</ion-content>

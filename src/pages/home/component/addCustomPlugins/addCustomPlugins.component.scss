@@ -1,0 +1,22 @@
+icmp-add-custom-plugins {
+  .main-plugins {
+    background-color: #ffffff;
+    margin-top: 8px;
+
+    .main-plugin {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .add-plugin {
+      width: 100%;
+      text-align: center;
+      padding: 8px 0;
+
+      ion-icon {
+        font-size: 26px;
+        color: #999999;
+        font-weight: bold;
+      }
+    }
+  }
+}

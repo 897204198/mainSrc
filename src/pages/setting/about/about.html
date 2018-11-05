@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'ABOUT_US' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="page-about">
+  <div class="about-bg">
+    <img src="./assets/images/lion.png">
+  </div>
+  <div class="about-logo">
+    <img src="./assets/images/qrcode.png" tappable (tap)="downloadApp()">
+  </div>
+  <div class="about-version">
+    V{{versionNumber}}
+  </div>
+  <div class="about-description" [innerHtml]="versionData.note"></div>
+  <div class="about-footer">
+    <div class="footer-content" tappable (click)="oopStormWebClk()">
+      <div class="footer-font"><img src="./assets/images/proper_logo.png"></div>
+      <div class="footer-font">{{'COMPANY_WEB' | translate}}</div>
+    </div>
+    <div class="footer-content-name" tappable (click)="oopStormClk()">{{'COMPANY_NAME' | translate}}</div>
+  </div>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'MAC_ADDRESS_MANAGE' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray-new">
+  <ion-segment class="segment-background" mode="md" [(ngModel)]="segmentPage" (ionChange)="segmentChanged()">
+    <ion-segment-button value="apply">
+      {{'SELF_APPLY' | translate}}
+    </ion-segment-button>
+    <ion-segment-button value="state">
+      {{'BIND_STATE' | translate}}
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segmentPage">
+    <ion-list *ngSwitchCase="'apply'">
+      <ion-item>
+        <ion-label color="dark">{{'APPLY_CATEGORY' | translate}}</ion-label>
+        <ion-select placeholder="{{'BIND' | translate}}" [(ngModel)]="submitInfo.appliTypeCode" class="gray-label" cancelText="{{'CANCEL' | translate}}"
+          okText="{{'CONFIRM' | translate}}">
+          <ion-option value='0'>{{'BIND' | translate}}</ion-option>
+          <ion-option value='1'>{{'UNBIND' | translate}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark">{{'APPLY_PEOPLE' | translate}}</ion-label>
+        <ion-input type="text" text-right [(ngModel)]="submitInfo.applicant" [disabled]=true></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark">{{'FACILITY_USER' | translate}}</ion-label>
+        <ion-input type="text" text-right [(ngModel)]="submitInfo.username" placeholder="{{'PLEASE_ENTER' | translate}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark">{{'FACILITY_NAME' | translate}}</ion-label>
+        <ion-input type="text" text-right [(ngModel)]="submitInfo.name" placeholder="{{'PLEASE_ENTER' | translate}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark">{{'MAC_ADDRESS' | translate}}</ion-label>
+        <ion-input type="text" text-right [(ngModel)]="submitInfo.macAddress" placeholder="E0:00:00:00:B0:00"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding *ngSwitchCase="'apply'">
+      <button id="e2e-logout-button" ion-button block (click)="submit()">
+        {{'SUBMIT_APPLY' | translate}}
+      </button>
+    </div>
+
+    <ion-list *ngSwitchCase="'state'">
+      <ion-item *ngFor="let info of bindArray">
+        <p>{{'FACILITY_USER' | translate}}: {{info?.username}}</p>
+        <p>{{'FACILITY_NAME' | translate}}: {{info?.name}}</p>
+        <p>{{'MAC_ADDRESS' | translate}}: {{info?.macAddress}}</p>
+        <button ion-button item-end *ngIf="info.actualTypeCode == 1" (click)="changeBind(info)">{{'BIND' | translate}}</button>
+        <button ion-button item-end *ngIf="info.actualTypeCode == 0" (click)="changeBind(info)">{{'UNBIND' | translate}}</button>
+        <div class="gray-label" item-content *ngIf="info.actualTypeCode == 2">{{'WAIT_CHECK' | translate}}</div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

@@ -1,0 +1,15 @@
+page-query-list-condition {
+  .item {
+    .text-input {
+      text-align: right;
+    }
+
+    .searchbox-name .text-input[disabled] {
+      opacity: 1 !important;
+    }
+
+    .searchbox-value {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+page-todo-opinion {
+  .opinion_other .item {
+    .text-input {
+      text-align: right;
+    }
+
+    .text-input[disabled] {
+      opacity: 1 !important;
+    }
+
+    .searchbox-name .text-input[disabled] {
+      opacity: 1 !important;
+    }
+
+    .searchbox-value {
+      display: none !important;
+    }
+  }
+
+  .item-margin-bottom {
+    margin-bottom: 5px;
+
+    .item-texttarea {
+      
+      .text-input {
+        text-align: left !important;
+      }
+    }
+  } 
+  .file-header {
+    display: flex;
+    align-items: center;
+
+    > span {
+      flex-grow: 1;
+      font-size: 18px;
+    }
+  }
+
+  .e2e-item:nth-child(3n) {
+    margin-bottom: 5px;
+  }
+
+  .help-list-title {
+    text-align: center;
+    background-color: #efeeee;
+    .item-inner {
+      border-bottom: none !important;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'ADD_FRIEND' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray-new">
+  <form>
+    <ion-searchbar name="search" placeholder="{{'SEARCH' | translate}}" [formControl]="titleFilter">
+    </ion-searchbar>
+  </form>
+  <icmp-placeholder *ngIf="isShow && !userList.length" placeholder="{{keyword}}"></icmp-placeholder>
+  <ion-list class="icmp-list-top-margin">
+    <div *ngFor="let user of userList; let i = index">
+        <button *ngIf="i<showNumber" ion-item (click)="lookUserProfile(user)">
+            <ion-avatar item-left class="list-avatar">
+              <img *ngIf="user.avatar" src="{{user.avatar}}" (error)="resetImg(user)"> 
+              <div *ngIf="!user.avatar" class="word-head-image">
+                <div class="word-head-image-content">{{user.name.substring(0, 1)}}</div>
+              </div>
+            </ion-avatar>
+            <h2>{{user.name}}</h2>
+            <button class="clear-btn" clear *ngIf="user.status != null && user.status.code != null && user.status.code != '0'" ion-button
+              item-end (click)="addFriend($event, user)">{{'ADD' | translate}}</button>
+            <button class="clear-btn" clear disabled *ngIf="user.status != null && user.status.code != null && user.status.code == '0'"
+              ion-button item-end color="dark">{{'ADDED' | translate}}</button>
+          </button>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

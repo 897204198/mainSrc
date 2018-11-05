@@ -1,0 +1,41 @@
+<span [ngSwitch]="fileType">
+  <span *ngSwitchCase="'txt'">
+    <img src="./assets/images/filetypes/txt.png">
+  </span>
+  <span *ngSwitchCase="'docx'">
+    <img src="./assets/images/filetypes/word.png">
+  </span>
+  <span *ngSwitchCase="'doc'">
+    <img src="./assets/images/filetypes/word.png">
+  </span>
+  <span *ngSwitchCase="'pptx'">
+    <img src="./assets/images/filetypes/ppt.png">
+  </span>
+  <span *ngSwitchCase="'ppt'">
+    <img src="./assets/images/filetypes/ppt.png">
+  </span>
+  <span *ngSwitchCase="'xlsx'">
+    <img src="./assets/images/filetypes/excel.png">
+  </span>
+  <span *ngSwitchCase="'xls'">
+    <img src="./assets/images/filetypes/excel.png">
+  </span>
+  <span *ngSwitchCase="'zip'">
+    <img src="./assets/images/filetypes/zip.png">
+  </span>
+  <span *ngSwitchCase="'rar'">
+    <img src="./assets/images/filetypes/zip.png">
+  </span>
+  <span *ngSwitchCase="'pdf'">
+    <img src="./assets/images/filetypes/pdf.png">
+  </span>
+  <span *ngSwitchCase="'jpg'">
+    <img src="./assets/images/filetypes/png.png">
+  </span>
+  <span *ngSwitchCase="'png'">
+    <img src="./assets/images/filetypes/png.png">
+  </span>
+  <span *ngSwitchDefault>
+    <img src="./assets/images/filetypes/other.png">
+  </span>
+</span>

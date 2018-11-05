@@ -1,0 +1,63 @@
+<ion-header (touchstart)="toggle()">
+  <ion-navbar>
+    <ion-title>{{'ADDRESS' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear color="primary" (click)="addFriend()">
+        <ion-icon name="md-add-circle" style="font-size:26px;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-gray-new" (ionScroll)="ionScroll()" (touchstart)="toggle()">
+  <form>
+    <ion-searchbar [formControl]="titleFilter" placeholder="{{'SEARCH' | translate}}">
+    </ion-searchbar>
+  </form>
+  <icmp-placeholder *ngIf="hidTopItem && !count" placeholder="{{keyword}}"></icmp-placeholder>
+  <ion-list *ngIf="!hidTopItem" class="icmp-list-bottom-margin">
+    <button ion-item (click)="applyAndNotification()">
+      <ion-avatar class="control-img" item-left>
+        <img src="./assets/images/im/newFriends.png">
+      </ion-avatar>
+      {{'APPLY_AND_NOTIFICATION' | translate}}
+    </button>
+    <div *ngIf="unreadData != null && unreadData != 0" class="hint">{{unreadData}}</div>
+    <button ion-item (click)="myGroup()">
+      <ion-avatar item-left class="control-img">
+        <img src="./assets/images/im/group_1.png">
+      </ion-avatar>
+      {{'GROUP' | translate}}
+    </button>
+    <button ion-item (click)="organizationAddress()">
+      <ion-avatar item-left class="control-img">
+        <img src="./assets/images/im/organization.png">
+      </ion-avatar>
+      {{'ORGANIZATION_ADDRESS' | translate}}
+    </button>
+  </ion-list>
+  <div *ngIf="selectInput" class="margin-bottom"></div>
+  <div *ngFor="let contact of contactInfos" class="{{contact['first']}}">
+    <ion-list class="icmp-list-bottom-margin" *ngIf="contact['items'].length != '0'" [ngClass]="{'list-md-no-border': !selectInput}">
+      <ion-item class="letterStyle" *ngIf="selectInput" id="{{contact['first']}}">{{contact['first']}}</ion-item>
+      <button class="contact-no-bottom" *ngFor="let user of contact['items'] | searchFilter: 'remark': keyword" ion-item detail-none
+        (click)="lookUserProfile(user)">
+        <ion-avatar item-left class="list-avatar">
+          <img *ngIf="user.avatar" src="{{user.avatar}}" (error)="resetImg(user)"> 
+          <div *ngIf="!user.avatar" class="word-head-image">
+            <div class="word-head-image-content">{{user.remark.substring(0, 1)}}</div>
+          </div>
+        </ion-avatar>
+        <h2>{{user.remark}}</h2>
+        <span item-end class="orgName" *ngIf="user.extendField != null">{{user.extendField.orgName}}</span>
+      </button>
+    </ion-list>
+    <div *ngIf="selectInput" class="margin-bottom"></div>
+  </div>
+</ion-content>
+<div *ngIf="selectInput">
+  <ul class="side" [ngClass]="{'dynamic-side': isDynamic}">
+    <li *ngFor="let letter of slider" (click)="scrollTo(letter)" id="{{letter}}">
+      <span>{{letter}}</span>
+    </li>
+  </ul>
+</div>

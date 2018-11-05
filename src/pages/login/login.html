@@ -1,0 +1,25 @@
+<icmp-spinner></icmp-spinner>
+<ion-content>
+  <img src="./assets/images/login_logo.png" (press)="pressEvent($event)" class="login-logo">
+  <!-- <ion-list> -->
+    <ion-item class="login-input">
+      <ion-label fixed class="login-icon"><ion-icon name="ios-person" color="primary"></ion-icon></ion-label>
+      <ion-input id="e2e-username" type="text" [ngModel]="userInfo.account" placeholder="{{'PLEASE_ENTER_ACCOUNT' | translate}}" #username></ion-input>
+    </ion-item>
+    <ion-item class="login-input">
+      <ion-label fixed class="login-icon"><ion-icon name="md-unlock" color="primary"></ion-icon></ion-label> -->
+      <ion-input id="e2e-password" type="password" [ngModel]="userInfo.password0" placeholder="{{'PLEASE_ENTER_PASSWORD' | translate}}" #password></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <label item-right>{{'REMEMBER_PASSWORD' | translate}}</label>
+      <ion-toggle id="e2e-savePassword" color="primary" [(ngModel)]="userInfo.savePassword"></ion-toggle>
+    </ion-item>
+  <!-- </ion-list> -->
+
+  <div padding>
+    <button id="e2e-login-button" ion-button block round color="primary" (tap)="logIn(username, password)">
+      {{'LOGIN' | translate}}
+    </button>
+  </div>
+</ion-content>

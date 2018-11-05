@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'GENERAL' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-gray-new">
+  <ion-list class="icmp-list-top-margin">
+    <ion-item>
+      <ion-label>{{'SPEAKER_MODE' | translate}}</ion-label>
+      <ion-toggle color="secondary" checked='true' #speaker (ionChange)="loudspeaker(speaker)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

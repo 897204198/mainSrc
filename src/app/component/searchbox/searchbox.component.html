@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button clear color="primary" (click)="dismiss()">
+        {{'CLOSE' | translate}}
+      </button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons *ngIf="multiple" end>
+      <button ion-button clear color="primary" (click)="searchboxSelect()">
+        {{'CONFIRM' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar id='search_input' [(ngModel)]="searchName" placeholder="{{'PLEASE_ENTER_SEARCH' | translate}}"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content-gray">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let result of searchResults; let i = index" (click)="searchboxSelect(result)">
+      <ion-label><div [innerHtml]="result.content"></div></ion-label>
+      <ion-checkbox *ngIf="multiple" color="secondary" [(ngModel)]="searchSelect[i]"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite()">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
